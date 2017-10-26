@@ -1,12 +1,67 @@
 # gulp常用插件及使用方法
 
+测一下gulp常用插件的使用方法
 
-## 参考文章（文章待选择）
+## CSS压缩 
 
-1. http://www.jianshu.com/p/98db023b5b89  前端自动化Gulp工具常用插件
-2. http://blog.csdn.net/cy5849203/article/details/52092566  Gulp构建前端自动化工作流之：常用插件介绍及使用
-3. https://segmentfault.com/a/1190000008349859  精通gulp常用插件
-4. http://uiseed.cn/312.html  Gulp常用插件整理
-5. https://zhuanlan.zhihu.com/p/24975955  前端构建系统 Gulp 的使用与常用插件推荐 - 上篇
-6. https://zhuanlan.zhihu.com/p/24984797   前端构建系统 Gulp 的使用与常用插件推荐 - 下篇
-7. https://zhuanlan.zhihu.com/p/25677151  gulp自动化压缩合并、加版本号解决方案
+[使用 gulp-csso](https://github.com/ben-eb/gulp-csso)
+
+npm
+
+```
+npm install gulp-csso --save-dev
+```
+example
+
+```
+var gulp = require('gulp');
+var csso = require('gulp-csso');
+
+gulp.task('csso', function () {
+  return gulp.src('src/index.css')
+    .pipe(csso({
+      restructure: false,
+      sourceMap: true,
+      debug: true
+    }))
+    .pipe(gulp.dest('output/minCss'));
+});
+```
+
+csso 参数配置详情参见： [https://github.com/ben-eb/gulp-csso#api](https://github.com/ben-eb/gulp-csso#api)
+
+## JS压缩
+
+[使用 gulp-uglify](https://github.com/terinjokes/gulp-uglify)
+
+npm
+
+```
+npm install --save-dev gulp-uglify
+```
+
+example
+
+```
+var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+var pump = require('pump');
+
+gulp.task('compress', function (cb) {
+  pump([
+        gulp.src('lib/*.js'),
+        uglify(),
+        gulp.dest('dist')
+    ],
+    cb
+  );
+});
+```
+
+**发现压缩后代码丢失，暂时还没找到解决办法**
+
+
+
+
+
+## 参考文章

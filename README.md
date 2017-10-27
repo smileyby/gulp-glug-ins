@@ -86,7 +86,7 @@ gulp.task('minify-html', function() {
 
 **不会去压缩html文件内的css和js代码**
 
-## 图片压缩（压缩报错，为解决！！）
+## 图片压缩（压缩报错，未解决！！）
 
 [使用 gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin)
 

@@ -86,7 +86,7 @@ gulp.task('minify-html', function() {
 
 **不会去压缩html文件内的css和js代码**
 
-## 图片压缩（压缩报错，未解决！！）
+## 图片压缩
 
 [使用 gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin)
 
@@ -108,6 +108,10 @@ gulp.task('default', () =>
   .pipe(gulp.dest('output/imgMin'))
 )
 ```
+
+第一次安装的时候压缩报错，写在重装后就可以了。目前还不知道是什么原因。
+
+还有一个问题，就是不知道怎么把被压缩的图片的具体信息log出来！！
 
 更多图片压缩的api配置请参考：
 > [https://github.com/sindresorhus/gulp-imagemin#api](https://github.com/sindresorhus/gulp-imagemin#api)
